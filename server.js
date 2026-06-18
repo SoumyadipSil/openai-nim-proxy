@@ -21,7 +21,7 @@ const MODEL_MAPPING = {
   'gpt-3.5-turbo': 'stepfun-ai/step-3.5-flash',
   'gpt-4': 'minimax/minimax-m2.7',
   'gpt-4-turbo': 'moonshotai/kimi-k2-instruct',
-  'gpt-4o': 'z-ai/glm-4.7',
+  'gpt-4o': 'z-ai/glm-5.1',
   'claude-3-opus': 'openai/gpt-oss-120b',
   'claude-3-sonnet': 'openai/gpt-oss-20b',
   'gemini-pro': 'nvidia/llama-3.1-nemotron-ultra-253b-v1'
