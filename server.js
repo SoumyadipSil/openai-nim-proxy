@@ -18,7 +18,7 @@ const SHOW_REASONING = false;
 const ENABLE_THINKING_MODE = false;
 
 const MODEL_MAPPING = {
-  'gpt-3.5-turbo': 'stepfun-ai/step-3.5-flash',
+  'gpt-3.5-turbo': 'deepseek-ai/deepseek-v4-flash',
   'gpt-4': 'minimax/minimax-m2.7',
   'gpt-4-turbo': 'moonshotai/kimi-k2.6',
   'gpt-4o': 'z-ai/glm-5.1',
