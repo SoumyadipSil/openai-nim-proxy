@@ -20,7 +20,7 @@ const ENABLE_THINKING_MODE = false;
 const MODEL_MAPPING = {
   'gpt-3.5-turbo': 'stepfun-ai/step-3.5-flash',
   'gpt-4': 'minimax/minimax-m2.7',
-  'gpt-4-turbo': 'moonshotai/kimi-k2-instruct',
+  'gpt-4-turbo': 'moonshotai/kimi-k2.6',
   'gpt-4o': 'z-ai/glm-5.1',
   'claude-3-opus': 'openai/gpt-oss-120b',
   'claude-3-sonnet': 'openai/gpt-oss-20b',
