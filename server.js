@@ -74,7 +74,7 @@ async function handleChatCompletions(req, res) {
         'Content-Type': 'application/json'
       },
       responseType: stream ? 'stream' : 'json',
-      timeout: 60000
+      timeout: 120000
     });
     
     if (stream) {
