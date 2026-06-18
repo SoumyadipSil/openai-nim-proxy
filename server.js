@@ -47,7 +47,8 @@ app.get('/v1/models', (req, res) => {
   res.json({ object: 'list', data: models });
 });
 
-app.post('/v1/chat/completions', async (req, res) => {
+// Main chat completions handler (extracted as function for reuse)
+async function handleChatCompletions(req, res) {
   try {
     if (!NIM_API_KEY) {
       return res.status(500).json({ error: { message: 'NIM_API_KEY not set', type: 'server_error' }});
@@ -143,7 +144,13 @@ app.post('/v1/chat/completions', async (req, res) => {
       }
     });
   }
-});
+}
+
+// Standard endpoint
+app.post('/v1/chat/completions', handleChatCompletions);
+
+// Root endpoint for clients that POST to / directly (e.g. JanitorAI)
+app.post('/', handleChatCompletions);
 
 app.all('*', (req, res) => {
   res.status(404).json({ error: { message: `Endpoint ${req.path} not found`, type: 'invalid_request_error', code: 404 }});
