@@ -2,16 +2,43 @@
   "name": "openai-nim-proxy",
   "version": "1.0.0",
   "description": "OpenAI compatible proxy for NVIDIA NIM API",
-  "main": "server.js",
+  "main": "dist/index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "build": "tsc",
+    "lint": "eslint src --ext .ts",
+    "format": "prettier --write \\src/**/*.ts\""
   },
   "dependencies": {
-    "express": "^4.18.2",
-    "cors": "^2.8.5",
-    "axios": "^1.6.0"
+    "axios": "^1.19.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^4.22.2",
+    "helmet": "^8.3.0",
+    "zod": "^4.4.3"
   },
   "engines": {
     "node": "18.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SoumyadipSil/openai-nim-proxy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SoumyadipSil/openai-nim-proxy/issues"
+  },
+  "homepage": "https://github.com/SoumyadipSil/openai-nim-proxy#readme",
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.2.0",
+    "eslint": "^10.8.1",
+    "prettier": "^3.9.6",
+    "tsx": "^4.23.12",
+    "typescript": "^7.0.2"
   }
 }

@@ -1,2 +1,47 @@
 # openai-nim-proxy
-OpenAI compatible proxy for NVIDIA NIM API
+
+A lightweight, strictly typed proxy service that translates standard OpenAI API requests to the NVIDIA NIM API. Designed as a drop-in replacement for OpenAI endpoints in enterprise tools and AI IDEs.
+
+## Features
+
+- **OpenAI API Compatibility:** Native support for `/v1/chat/completions` and `/v1/models`.
+- **Streaming Support:** Robust Server-Sent Events (SSE) handling.
+- **Model Mapping:** Aliases standard names (e.g., `gpt-4`) to NVIDIA's high-performance open models.
+- **Security:** Constant-time authentication validation.
+
+## Quick Start
+
+### 1. Install
+```bash
+git clone https://github.com/SoumyadipSil/openai-nim-proxy.git
+cd openai-nim-proxy
+npm install
+```
+
+### 2. Configure
+Create a `.env` file in the root directory:
+```env
+PORT=3000
+NVIDIA_API_KEY=your_nvidia_api_key
+CLIENT_AUTH_KEY=your_secure_client_token
+```
+
+### 3. Run
+```bash
+# Development
+npm run dev
+
+# Production
+npm run build
+npm start
+```
+
+## Usage
+
+Point any OpenAI-compatible client (Cursor, Cline, Langchain, etc.) to the proxy:
+
+- **Base URL:** `http://localhost:3000/v1`
+- **API Key:** `<your_secure_client_token>`
+
+## License
+MIT
