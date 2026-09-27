@@ -1,20 +1,45 @@
-export const professionalModels = [
-  // Coding & Reasoning
-  { id: 'deepseek-coder-6.7b-instruct', provider: 'deepseek' },
-  { id: 'meta/llama-3.1-405b-instruct', provider: 'meta' },
-  { id: 'meta/llama-3.1-70b-instruct', provider: 'meta' },
-  { id: 'meta/llama-3.1-8b-instruct', provider: 'meta' },
-  { id: 'nvidia/nemotron-4-340b-instruct', provider: 'nvidia' },
-  { id: 'mistralai/mistral-large-2-instruct', provider: 'mistralai' },
-  { id: 'mistralai/mixtral-8x22b-instruct-v0.1', provider: 'mistralai' },
-  
-  // Speed & Efficiency
-  { id: 'meta/llama3-8b-instruct', provider: 'meta' },
-  { id: 'google/gemma-2-27b-it', provider: 'google' },
-  { id: 'google/gemma-2-9b-it', provider: 'google' },
-  { id: 'microsoft/phi-3-mini-4k-instruct', provider: 'microsoft' },
-  { id: 'microsoft/phi-3-small-8k-instruct', provider: 'microsoft' }
-];
+export const MODEL_MAPPING: Record<string, string> = {
+  // Big / flagship
+  "gpt-4": "nvidia/nemotron-3-ultra-550b-a55b",
+  "gpt-4-turbo": "moonshotai/kimi-k3",
+  "claude-3-opus": "z-ai/glm-5-3",
+  "m3": "z-ai/glm-5-3",
+
+  // Mid-tier
+  "gpt-3.5-turbo": "nvidia/nemotron-3-super-120b-a12b",
+  "gpt-4o": "z-ai/glm-5-3-flash",
+  "gemini-pro": "google/gemma-4-31b-it",
+  "claude-3-sonnet": "openai/gpt-oss-20b",
+  "m2": "deepseek-ai/deepseek-v4.1-flash",
+
+  // Fast / light
+  "gpt-4-flash": "nvidia/nemotron-3.5-lightning-30b-a3b",
+  "gpt-3.5": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
+  "gpt-3.5o": "poolside/laguna-xs-2.1",
+  "gemini-turbo": "meta/muse-glimmer-30b",
+
+  // Mistral aliases
+  "mistral": "mistralai/mistral-nemotron",
+  "mistral-nemo": "mistralai/mistral-nemotron",
+  "mistral-turbo": "z-ai/glm-5-3-flash",
+  "mistral-pro": "google/gemma-4-31b-it",
+  "mistral-fast": "nvidia/nemotron-3.5-lightning-30b-a3b",
+
+  // Google-style aliases
+  "google-light": "google/gemma-4-31b-it",
+  "google-lightest": "meta/muse-glimmer-30b",
+  "google-lighter": "poolside/laguna-xs-2.1",
+
+  // Vision and additional aliases
+  "gpt-4-vision": "meta/llama-3.2-90b-vision-instruct",
+};
+
+export const professionalModels = Array.from(
+  new Set(Object.values(MODEL_MAPPING)),
+).map((id) => ({
+  id,
+  provider: id.split("/")[0],
+}));
 
 /**
  * Resolves the incoming requested model to a NIM-compatible model name.
@@ -22,23 +47,9 @@ export const professionalModels = [
  */
 export function resolveTargetModel(requestedModel: string): string {
   // If the user already provides a full NIM path (e.g. meta/llama-3.1-70b-instruct), use it.
-  if (requestedModel.includes('/')) {
+  if (requestedModel.includes("/")) {
     return requestedModel;
   }
 
-  // Simple aliases
-  const aliases: Record<string, string> = {
-    'gpt-4': 'meta/llama-3.1-405b-instruct',
-    'gpt-4-turbo': 'meta/llama-3.1-405b-instruct',
-    'gpt-4o': 'meta/llama-3.1-405b-instruct',
-    'gpt-3.5-turbo': 'meta/llama-3.1-70b-instruct',
-    'claude-3-opus': 'nvidia/nemotron-4-340b-instruct',
-    'claude-3-sonnet': 'mistralai/mistral-large-2-instruct',
-    'claude-3-haiku': 'meta/llama-3.1-8b-instruct',
-    'deepseek-coder': 'deepseek-coder-6.7b-instruct',
-    'nemotron': 'nvidia/nemotron-4-340b-instruct',
-    'llama-3.1': 'meta/llama-3.1-70b-instruct',
-  };
-
-  return aliases[requestedModel.toLowerCase()] || requestedModel;
+  return MODEL_MAPPING[requestedModel.toLowerCase()] || requestedModel;
 }
