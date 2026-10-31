@@ -19,7 +19,7 @@
     "zod": "^4.4.3"
   },
   "engines": {
-    "node": "18.x"
+    "node": ">=20.19.0"
   },
   "repository": {
     "type": "git",

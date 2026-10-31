@@ -40,12 +40,38 @@ npm run build
 npm start
 ```
 
+### 4. Deploy on Render or Railway
+
+Use these commands:
+
+- **Build command:** `npm install && npm run build`
+- **Start command:** `npm start`
+
+Set these environment variables in the hosting dashboard:
+
+```env
+NVIDIA_API_KEY=your_nvidia_api_key
+CLIENT_AUTH_KEY=your_secure_client_token
+```
+
+The host provides `PORT` automatically. Do not hard-code it in production.
+
 ## Usage
 
 Point any OpenAI-compatible client (Cursor, Cline, Langchain, etc.) to the proxy:
 
-- **Base URL:** `http://localhost:3000/v1`
-- **API Key:** `<your_secure_client_token>`
+- **Local base URL:** `http://localhost:3000/v1`
+- **Hosted base URL:** `https://<your-service-name>.onrender.com/v1` (Render)
+- **Hosted base URL:** `https://<your-service-name>.up.railway.app/v1` (Railway)
+- **API Key:** the value of `CLIENT_AUTH_KEY`
+
+For chat completions, clients call:
+
+```text
+POST https://<your-service-domain>/v1/chat/completions
+Authorization: Bearer <your CLIENT_AUTH_KEY>
+Content-Type: application/json
+```
 
 ## License
 MIT
