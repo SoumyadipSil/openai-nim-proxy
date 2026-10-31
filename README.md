@@ -42,10 +42,10 @@ npm start
 
 ### 4. Deploy on Render or Railway
 
-Use these commands:
+Use these commands (or use the included `render.yaml`):
 
-- **Build command:** `npm install && npm run build`
-- **Start command:** `npm start`
+- **Build command:** `yarn install && yarn build`
+- **Start command:** `yarn start`
 
 Set these environment variables in the hosting dashboard:
 
