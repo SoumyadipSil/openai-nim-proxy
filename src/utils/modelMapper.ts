@@ -1,13 +1,13 @@
 export const MODEL_MAPPING: Record<string, string> = {
   // Big / flagship
   "gpt-4": "nvidia/nemotron-3-ultra-550b-a55b",
-  "gpt-4-turbo": "moonshotai/kimi-k3",
-  "claude-3-opus": "z-ai/glm-5-3",
-  "m3": "z-ai/glm-5-3",
+  "gpt-4-turbo": "moonshotai/kimi-k2.6",
+  "claude-3-opus": "z-ai/glm-5.3-flash",
+  "m3": "z-ai/glm-5.3-flash",
 
   // Mid-tier
   "gpt-3.5-turbo": "nvidia/nemotron-3-super-120b-a12b",
-  "gpt-4o": "z-ai/glm-5-3-flash",
+  "gpt-4o": "z-ai/glm-5.3-flash",
   "gemini-pro": "google/gemma-4-31b-it",
   "claude-3-sonnet": "openai/gpt-oss-20b",
   "m2": "deepseek-ai/deepseek-v4.1-flash",
@@ -19,9 +19,9 @@ export const MODEL_MAPPING: Record<string, string> = {
   "gemini-turbo": "meta/muse-glimmer-30b",
 
   // Mistral aliases
-  "mistral": "mistralai/mistral-nemotron",
-  "mistral-nemo": "mistralai/mistral-nemotron",
-  "mistral-turbo": "z-ai/glm-5-3-flash",
+  "mistral": "nv-mistralai/mistral-nemo-12b-instruct",
+  "mistral-nemo": "nv-mistralai/mistral-nemo-12b-instruct",
+  "mistral-turbo": "z-ai/glm-5.3-flash",
   "mistral-pro": "google/gemma-4-31b-it",
   "mistral-fast": "nvidia/nemotron-3.5-lightning-30b-a3b",
 

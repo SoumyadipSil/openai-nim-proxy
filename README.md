@@ -9,6 +9,10 @@ A lightweight, strictly typed proxy service that translates standard OpenAI API 
 - **Model Mapping:** Aliases standard names (e.g., `gpt-4`) to NVIDIA's high-performance open models.
 - **Security:** Constant-time authentication validation.
 
+The aliases in `src/utils/modelMapper.ts` target model IDs currently exposed by
+NVIDIA's Integrate API. Clients may also send a full NIM model ID such as
+`meta/llama-3.2-90b-vision-instruct`; full IDs are passed through unchanged.
+
 ## Quick Start
 
 ### 1. Install
