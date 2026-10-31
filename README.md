@@ -47,6 +47,15 @@ Use these commands (or use the included `render.yaml`):
 - **Build command:** `yarn install && yarn build`
 - **Start command:** `yarn start`
 
+If the Render service was created manually, update its existing settings under
+**Settings > Build & Deploy**. `render.yaml` does not automatically replace
+commands on an existing service:
+
+- **Build Command:** `yarn install && yarn build`
+- **Start Command:** `yarn start`
+
+The `start` script also runs a TypeScript build before launching as a safeguard.
+
 Set these environment variables in the hosting dashboard:
 
 ```env
