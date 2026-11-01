@@ -1,16 +1,16 @@
 export const MODEL_MAPPING: Record<string, string> = {
   // Big / flagship
   "gpt-4": "nvidia/nemotron-3-ultra-550b-a55b",
-  "gpt-4-turbo": "moonshotai/kimi-k2.6",
-  "claude-3-opus": "z-ai/glm-5.3-flash",
-  "m3": "z-ai/glm-5.3-flash",
+  "gpt-4-turbo": "stepfun-ai/step-5-preview",
+  "claude-3-opus": "mistralai/mistral-large-4-1t-a52b",
+  "m3": "minimaxai/minimax-m3.1-flash",
 
   // Mid-tier
-  "gpt-3.5-turbo": "nvidia/nemotron-3-super-120b-a12b",
+  "m2": "deepseek-ai/deepseek-v4.1-flash",
+  "gpt-3.5-turbo": "nvidia/nemotron-3.5-super-vl-120b-a12b",
   "gpt-4o": "z-ai/glm-5.3-flash",
   "gemini-pro": "google/gemma-4-31b-it",
   "claude-3-sonnet": "openai/gpt-oss-20b",
-  "m2": "deepseek-ai/deepseek-v4.1-flash",
 
   // Fast / light
   "gpt-4-flash": "nvidia/nemotron-3.5-lightning-30b-a3b",
@@ -19,8 +19,8 @@ export const MODEL_MAPPING: Record<string, string> = {
   "gemini-turbo": "meta/muse-glimmer-30b",
 
   // Mistral aliases
-  "mistral": "nv-mistralai/mistral-nemo-12b-instruct",
-  "mistral-nemo": "nv-mistralai/mistral-nemo-12b-instruct",
+  "mistral": "mistralai/mistral-large-4-1t-a52b",
+  "mistral-nemo": "mistralai/mistral-large-4-1t-a52b",
   "mistral-turbo": "z-ai/glm-5.3-flash",
   "mistral-pro": "google/gemma-4-31b-it",
   "mistral-fast": "nvidia/nemotron-3.5-lightning-30b-a3b",
@@ -30,10 +30,9 @@ export const MODEL_MAPPING: Record<string, string> = {
   "google-lightest": "meta/muse-glimmer-30b",
   "google-lighter": "poolside/laguna-xs-2.1",
 
-  // Vision and additional aliases
+  // Vision
   "gpt-4-vision": "meta/llama-3.2-90b-vision-instruct",
 };
-
 export const professionalModels = Array.from(
   new Set(Object.values(MODEL_MAPPING)),
 ).map((id) => ({
