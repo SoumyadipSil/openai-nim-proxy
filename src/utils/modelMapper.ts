@@ -4,6 +4,8 @@ export const MODEL_MAPPING: Record<string, string> = {
   "gpt-4-turbo": "stepfun-ai/step-5-preview",
   "claude-3-opus": "mistralai/mistral-large-4-1t-a52b",
   "m3": "minimaxai/minimax-m3.1-flash",
+  "kimi-k3.1-pro": "moonshotai/kimi-k3.1-pro",
+  "moonshotai kimi k3.1 pro": "moonshotai/kimi-k3.1-pro",
 
   // Mid-tier
   "m2": "deepseek-ai/deepseek-v4.1-flash",
